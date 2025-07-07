@@ -1,0 +1,607 @@
+{
+	"info": {
+		"_postman_id": "exchange-api-collection",
+		"name": "Exchange API",
+		"description": "Colección completa de endpoints para el sistema de Exchange con NestJS, TypeORM y PostgreSQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "Obtiene todos los usuarios del sistema"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						},
+						"description": "Obtiene un usuario específico por su ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"nuevo@test.com\",\n  \"accountNumber\": \"10005\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "Crea un nuevo usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"emiliano.updated@test.com\",\n  \"accountNumber\": \"10001\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/users/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						},
+						"description": "Actualiza un usuario existente"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						},
+						"description": "Elimina un usuario del sistema"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para gestión de usuarios"
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Get All Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/orders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders"
+							]
+						},
+						"description": "Obtiene todas las órdenes del sistema"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/orders/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders",
+								"1"
+							]
+						},
+						"description": "Obtiene una orden específica por su ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Market Buy Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": 1,\n  \"instrumentId\": 47,\n  \"side\": \"BUY\",\n  \"type\": \"MARKET\",\n  \"size\": 10\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/orders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders"
+							]
+						},
+						"description": "Crea una orden de compra de mercado"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Limit Buy Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": 1,\n  \"instrumentId\": 47,\n  \"side\": \"BUY\",\n  \"type\": \"LIMIT\",\n  \"size\": 10,\n  \"price\": 900\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/orders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders"
+							]
+						},
+						"description": "Crea una orden de compra limitada"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Market Sell Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": 1,\n  \"instrumentId\": 47,\n  \"side\": \"SELL\",\n  \"type\": \"MARKET\",\n  \"size\": 10\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/orders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders"
+							]
+						},
+						"description": "Crea una orden de venta de mercado"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Limit Sell Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": 1,\n  \"instrumentId\": 47,\n  \"side\": \"SELL\",\n  \"type\": \"LIMIT\",\n  \"size\": 10,\n  \"price\": 950\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/orders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders"
+							]
+						},
+						"description": "Crea una orden de venta limitada"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"CANCELLED\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/orders/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders",
+								"1"
+							]
+						},
+						"description": "Actualiza el estado de una orden"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/orders/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders",
+								"1"
+							]
+						},
+						"description": "Elimina una orden del sistema"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para gestión de órdenes de trading"
+		},
+		{
+			"name": "Instruments",
+			"item": [
+				{
+					"name": "Get All Instruments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/instruments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"instruments"
+							]
+						},
+						"description": "Obtiene todos los instrumentos financieros"
+					},
+					"response": []
+				},
+				{
+					"name": "Search Instruments by Query",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/instruments/search?q=YPFD",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"instruments",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "YPFD",
+									"description": "Término de búsqueda"
+								}
+							]
+						},
+						"description": "Busca instrumentos por ticker, nombre o tipo"
+					},
+					"response": []
+				},
+				{
+					"name": "Search Instruments by Ticker",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/instruments/search?ticker=YPFD",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"instruments",
+								"search"
+							],
+							"query": [
+								{
+									"key": "ticker",
+									"value": "YPFD",
+									"description": "Ticker específico"
+								}
+							]
+						},
+						"description": "Busca instrumentos por ticker específico"
+					},
+					"response": []
+				},
+				{
+					"name": "Search Instruments by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/instruments/search?name=YPF",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"instruments",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "YPF",
+									"description": "Nombre del instrumento"
+								}
+							]
+						},
+						"description": "Busca instrumentos por nombre"
+					},
+					"response": []
+				},
+				{
+					"name": "Search Instruments by Type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/instruments/search?type=ACCIONES",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"instruments",
+								"search"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "ACCIONES",
+									"description": "Tipo de instrumento"
+								}
+							]
+						},
+						"description": "Busca instrumentos por tipo"
+					},
+					"response": []
+				},
+				{
+					"name": "Search with Pagination",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/instruments/search?q=YPF&page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"instruments",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "YPF",
+									"description": "Término de búsqueda"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Número de página"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "Límite de resultados por página"
+								}
+							]
+						},
+						"description": "Busca instrumentos con paginación"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para búsqueda de instrumentos financieros"
+		},
+		{
+			"name": "Portfolio",
+			"item": [
+				{
+					"name": "Get User Portfolio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/portfolio/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"portfolio",
+								"1"
+							]
+						},
+						"description": "Obtiene el portfolio completo de un usuario con todas las posiciones y rendimientos"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Portfolio Summary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/portfolio/1/summary",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"portfolio",
+								"1",
+								"summary"
+							]
+						},
+						"description": "Obtiene un resumen del portfolio sin el detalle de las posiciones"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Position Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/portfolio/1/position/47",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"portfolio",
+								"1",
+								"position",
+								"47"
+							]
+						},
+						"description": "Obtiene los detalles de una posición específica del usuario"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para gestión de portfolios de usuarios"
+		},
+		{
+			"name": "Health Check",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "Verifica el estado de la API"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoint de verificación de salud de la API"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string",
+			"description": "URL base de la API"
+		}
+	]
+} 
